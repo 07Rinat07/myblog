@@ -4,6 +4,7 @@ namespace app\modules\admin\controllers;
 
 use app\models\Article;
 use app\models\ArticleSearch;
+use app\models\ImageUpload;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -126,5 +127,12 @@ class ArticleController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionSetImage($id)
+    {
+        $model = new ImageUpload;
+
+       return $this->render('image', ['model'=>$model]);
     }
 }
