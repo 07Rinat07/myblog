@@ -4,9 +4,10 @@ namespace app\modules\admin\controllers;
 
 use app\models\Article;
 use app\models\ArticleSearch;
+use Yii;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
@@ -68,18 +69,13 @@ class ArticleController extends Controller
     public function actionCreate()
     {
         $model = new Article();
-
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            $model->loadDefaultValues();
+            return $this->render('create', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
 
     /**
