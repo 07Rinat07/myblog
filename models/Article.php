@@ -38,8 +38,8 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             [['title'], 'required'],
-            [['title','description','content'], 'string'],
-            [['date'], 'date', 'format'=>'php:Y-m-d'],
+            [['title', 'description', 'content'], 'string'],
+            [['date'], 'date', 'format' => 'php:Y-m-d'],
             [['date'], 'default', 'value' => date('Y-m-d')],
             [['title'], 'string', 'max' => 255],
             [['category_id'], 'number']
@@ -69,6 +69,11 @@ class Article extends \yii\db\ActiveRecord
     {
         $this->image = $filename;
         return $this->save(false); // по умолчанию валидация вкл поэтому если надо откл валидацию то пишу false,и возварщаю булевое знач что бы в контроллере можно было воспользоваться
+    }
+
+    public function getImage()
+    {
+      return ($this->image) ? '../../uploads/' . $this->image : '../../no-image.png';
     }
 
     public function deleteImage()
