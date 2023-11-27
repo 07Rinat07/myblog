@@ -65,23 +65,9 @@ class Article extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * Gets query for [[ArticleTags]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getArticleTags()
+    public function saveImage($filename)
     {
-        return $this->hasMany(ArticleTag::class, ['article_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[Comments]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getComments()
-    {
-        return $this->hasMany(Comment::class, ['article_id' => 'id']);
+        $this->image = $filename;
+        return $this->save(false); // по умолчанию валидация вкл поэтому если надо откл валидацию то пишу false,и возварщаю булевое знач что бы в контроллере можно было воспользоваться
     }
 }
