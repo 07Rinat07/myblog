@@ -48,6 +48,7 @@ class ImageUpload extends Model
     }
     public function fileExists($currentImage)
     {
+        if (!empty($currentImage) && $currentImage != null)
         return file_exists($this->getFolder() . $currentImage);
     }
     public function saveImage()
