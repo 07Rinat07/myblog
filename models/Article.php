@@ -74,7 +74,7 @@ class Article extends \yii\db\ActiveRecord
 
     public function getImage()
     {
-      return ($this->image) ? '../../uploads/' . $this->image : '../../no-image.png';
+        return ($this->image) ? '../../uploads/' . $this->image : '../../no-image.png';
     }
 
     public function deleteImage()
@@ -93,4 +93,16 @@ class Article extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
+
+    public function saveCategory($category_id)
+    {
+        $category = Category::findOne($category_id);
+        if ($category != null)
+        {
+            $this->link('category', $category);
+            return true;
+        }
+    }
+
+
 }
