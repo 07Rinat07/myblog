@@ -63,11 +63,17 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
+
     /**
      * Login action.
      *
      * @return Response|string
      */
+    public function actionView()
+    {
+        return $this->render('single');
+    }
+
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
@@ -123,5 +129,10 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionCategory()
+    {
+        return $this->render('category');
     }
 }
