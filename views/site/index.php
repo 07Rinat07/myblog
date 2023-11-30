@@ -1,52 +1,58 @@
+<?php
+
+use yii\widgets\LinkPager;
+
+?>
+
 <!--main content start-->
 <div class="main-content">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <article class="post">
-                    <div class="post-thumb">
-                        <a href="blog.html"><img src="./../public/images/blog-1.jpg" alt=""></a>
-
-                        <a href="blog.html" class="post-thumb-overlay text-center">
-                            <div class="text-uppercase text-center">View Post</div>
-                        </a>
-                    </div>
-                    <div class="post-content">
-                        <header class="entry-header text-center text-uppercase">
-                            <h6><a href="#"> Travel</a></h6>
-
-                            <h1 class="entry-title"><a href="blog.html">Home is peaceful place</a></h1>
+                <?php foreach ($articles as $article): ?>
+                    <article class="post">
+                        <div class="post-thumb">
+                            <a href="blog.html"><img src="<?=$article->getImage1();?>" alt=""></a>
+                            <!--для динамики обращение в папку uploads времено дубль клон функция с др path.-->
 
 
-                        </header>
-                        <div class="entry-content">
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                tevidulabore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                                justo duo dolores rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-                                ipsum dolor sit am Lorem ipsum dolor sitconsetetur sadipscing elitr, sed diam nonumy
-                                eirmod tempor invidunt ut labore et dolore maliquyam erat, sed diam voluptua.
-                            </p>
+                            <a href="blog.html" class="post-thumb-overlay text-center">
+                                <div class="text-uppercase text-center">View Post</div>
+                            </a>
+                        </div>
+                        <div class="post-content">
+                            <header class="entry-header text-center text-uppercase">
+                                <h6><a href="#"> <?=$article->category->title;?></a></h6>
 
-                            <div class="btn-continue-reading text-center text-uppercase">
-                                <a href="blog.html" class="more-link">Continue Reading</a>
+                                <h1 class="entry-title"><a href="blog.html"><?=$article->title?></a></h1>
+
+
+                            </header>
+                            <div class="entry-content">
+                                <p><?=$article->description?>
+                                </p>
+
+                                <div class="btn-continue-reading text-center text-uppercase">
+                                    <a href="blog.html" class="more-link">Continue Reading</a>
+                                </div>
+                            </div>
+                            <div class="social-share">
+                                <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a> On <?=$article->date?>></span>
+                                <ul class="text-center pull-right">
+                                    <li><a class="s-facebook" href="#"><i class="fa fa-eye"></i></a></li><?=(int) $article->viewed?>
+                                </ul>
                             </div>
                         </div>
-                        <div class="social-share">
-                            <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a> On November 29, 2023</span>
-                            <ul class="text-center pull-right">
-                                <li><a class="s-facebook" href="#"><i class="fa fa-eye"></i></a></li>325
-                            </ul>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                <?php endforeach; ?>
 
-                <ul class="pagination">
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                </ul>
+                <?php
+
+                echo LinkPager::widget([
+                    'pagination' => $pagination,
+                ]);
+                ?>
+
             </div>
             <div class="col-md-4" data-sticky_column>
                 <div class="primary-sidebar">

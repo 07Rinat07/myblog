@@ -77,6 +77,11 @@ class Article extends \yii\db\ActiveRecord
     {
         return ($this->image) ? '../../uploads/' . $this->image : '../../no-image.png';
     }
+    public function getImage1()
+    {
+        return ($this->image) ? './../uploads/' . $this->image : './../no-image.png';
+       // <!--для динамики обращение в папку uploads времено дубль клон функция с др path.-->
+    }
 
     public function deleteImage()
     {
