@@ -77,9 +77,12 @@ class SiteController extends Controller
             ->limit($pagination->limit)
             ->all();
 
+        $popular = Article::find()->orderBy('viewed desc')->all();
+
         return $this->render('index',[
             'articles'=>$articles,
-            'pagination'=>$pagination
+            'pagination'=>$pagination,
+            'popular' =>$popular
         ]);
     }
 
