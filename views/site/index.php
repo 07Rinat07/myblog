@@ -38,7 +38,7 @@ use yii\widgets\LinkPager;
                             </div>
                             <div class="social-share">
                                 <span class="social-share-title pull-left text-capitalize">By <a
-                                            href="#">Rubel</a> On <?= $article->date ?>></span>
+                                            href="#">Rubel</a> On <?= $article->getDate() ?>></span>
                                 <ul class="text-center pull-right">
                                     <li><a class="s-facebook" href="#"><i class="fa fa-eye"></i></a>
                                     </li><?= (int)$article->viewed ?>
@@ -66,14 +66,14 @@ use yii\widgets\LinkPager;
                             <div class="popular-post">
 
 
-                                <a href="#" class="popular-img"><img src="<?=$article->getImage1();?>" alt="">
+                                <a href="#" class="popular-img"><img src="<?= $article->getImage1(); ?>" alt="">
 
                                     <div class="p-overlay"></div>
                                 </a>
 
                                 <div class="p-content">
-                                    <a href="#" class="text-uppercase"><?=$article->title?></a>
-                                    <span class="p-date"><?=$article->date;?></span>
+                                    <a href="#" class="text-uppercase"><?= $article->title ?></a>
+                                    <span class="p-date"><?= $article->getDate(); ?></span>
 
                                 </div>
                             </div>
@@ -83,100 +83,45 @@ use yii\widgets\LinkPager;
                     </aside>
                     <aside class="widget pos-padding">
                         <h3 class="widget-title text-uppercase text-center">Recent Posts</h3>
-
-                        <div class="thumb-latest-posts">
-
-
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#" class="popular-img"><img src="./../public/images/r-p.jpg" alt="">
-                                        <div class="p-overlay"></div>
-                                    </a>
-                                </div>
-                                <div class="p-content">
-                                    <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                                    <span class="p-date">November 29, 2023</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="thumb-latest-posts">
+                        <?php foreach ($recent as $article): ?>
+                            <div class="thumb-latest-posts">
 
 
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#" class="popular-img"><img src="./../public/images/r-p.jpg" alt="">
-                                        <div class="p-overlay"></div>
-                                    </a>
-                                </div>
-                                <div class="p-content">
-                                    <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                                    <span class="p-date">November 29, 2023</span>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#" class="popular-img"><img src="<?=$article->getImage1();?>" alt="">
+                                            <div class="p-overlay"></div>
+                                        </a>
+                                    </div>
+                                    <div class="p-content">
+                                        <a href="#" class="text-uppercase"><?=$article->title?></a>
+                                        <span class="p-date"><?=$article->getDate();?></span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="thumb-latest-posts">
+                        <?php endforeach; ?>
 
 
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#" class="popular-img"><img src="./../public/images/r-p.jpg" alt="">
-                                        <div class="p-overlay"></div>
-                                    </a>
-                                </div>
-                                <div class="p-content">
-                                    <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                                    <span class="p-date">November 29, 2023</span>
-                                </div>
+                        <div class="media">
+                            <div class="media-left">
                             </div>
                         </div>
-                        <div class="thumb-latest-posts">
-
-
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#" class="popular-img"><img src="./../public/images/r-p.jpg" alt="">
-                                        <div class="p-overlay"></div>
-                                    </a>
-                                </div>
-                                <div class="p-content">
-                                    <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                                    <span class="p-date">November 29, 2023</span>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
-                    <aside class="widget border pos-padding">
-                        <h3 class="widget-title text-uppercase text-center">Categories</h3>
-                        <ul>
-                            <li>
-                                <a href="#">Food & Drinks</a>
-                                <span class="post-count pull-right"> (2)</span>
-                            </li>
-                            <li>
-                                <a href="#">Travel</a>
-                                <span class="post-count pull-right"> (2)</span>
-                            </li>
-                            <li>
-                                <a href="#">Business</a>
-                                <span class="post-count pull-right"> (2)</span>
-                            </li>
-                            <li>
-                                <a href="#">Story</a>
-                                <span class="post-count pull-right"> (2)</span>
-                            </li>
-                            <li>
-                                <a href="#">DIY & Tips</a>
-                                <span class="post-count pull-right"> (2)</span>
-                            </li>
-                            <li>
-                                <a href="#">Lifestyle</a>
-                                <span class="post-count pull-right"> (2)</span>
-                            </li>
-                        </ul>
-                    </aside>
                 </div>
+                </aside>
+                <aside class="widget border pos-padding">
+                    <h3 class="widget-title text-uppercase text-center">Categories</h3>
+                    <ul>
+                        <?php foreach ($categories as $category):?>
+                        <li>
+                            <a href="#">Food & Drinks</a>
+                            <span class="post-count pull-right">(<?= $category->getArticlesCount();?>)</span>
+                        </li>
+                        <?php endforeach;?>
+                    </ul>
+                </aside>
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- end main content-->
