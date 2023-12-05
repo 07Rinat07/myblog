@@ -13,7 +13,7 @@ use yii\widgets\LinkPager;
                 <?php foreach ($articles as $article): ?>
                     <article class="post">
                         <div class="post-thumb">
-                            <a href="<?=Url::toRoute(['site/view', 'id'=>$article->id]);?>"><img src="<?= $article->getImage1(); ?>" alt=""></a>
+                            <a href="<?=Url::toRoute(['site/view', 'id'=>$article->id]);?>"><img src="<?= $article->getImage(); ?>" alt=""></a>
                             <!--для динамики обращение в папку uploads времено дубль клон функция с др path.-->
 
 
@@ -67,7 +67,7 @@ use yii\widgets\LinkPager;
                             <div class="popular-post">
 
 
-                                <a href="#" class="popular-img"><img src="<?= $article->getImage1(); ?>" alt="">
+                                <a href="#" class="popular-img"><img src="<?= $article->getImage(); ?>" alt="">
 
                                     <div class="p-overlay"></div>
                                 </a>
@@ -90,7 +90,7 @@ use yii\widgets\LinkPager;
 
                                 <div class="media">
                                     <div class="media-left">
-                                        <a href="#" class="popular-img"><img src="<?=$article->getImage1();?>" alt="">
+                                        <a href="#" class="popular-img"><img src="<?=$article->getImage();?>" alt="">
                                             <div class="p-overlay"></div>
                                         </a>
                                     </div>
