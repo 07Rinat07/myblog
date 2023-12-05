@@ -250,7 +250,7 @@ use yii\helpers\Url;
                 </aside>
             </div>
         </div>
-        </div>
+
     </div>
 </div>
 <!-- end main content-->
