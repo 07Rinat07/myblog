@@ -74,13 +74,14 @@ class Article extends \yii\db\ActiveRecord
         return $this->save(false); // по умолчанию валидация вкл поэтому если надо откл валидацию то пишу false,и возварщаю булевое знач что бы в контроллере можно было воспользоваться
     }
 
-    public function getImage()
-    {
-        return ($this->image) ? '../../uploads/' . $this->image : '../../no-image.png';
-    }
+//    public function getImage()
+//    {
+//        return ($this->image) ? './uploads/' . $this->image : './no-image.png';
+//    }
+
     public function getImage1()
     {
-        return ($this->image) ? './../uploads/' . $this->image : './../no-image.png';
+        return ($this->image) ? './uploads/' . $this->image : './no-image.png';
        // <!--для динамики обращение в папку uploads времено дубль клон функция с др path.-->
     }
 
