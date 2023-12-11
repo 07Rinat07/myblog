@@ -57,7 +57,7 @@ class Category extends \yii\db\ActiveRecord
         return Category::find()->all();
     }
 
-    public function getArticlesByCategory($id)
+    public static function getArticlesByCategory($id)
     {
         // build a DB query to get all articles with status = 1
         $query = Article::find()->where(['category_id' => $id]);
