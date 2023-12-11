@@ -85,6 +85,11 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         // TODO: Implement findIdentityByAccessToken() method.
     }
 
+    public static function findByUsername($username)
+    {
+        return User::find()->where(['name'=>$username])->one();
+    }
+
     public static function findByEmail($email)
     {
         return User::find()->where(['email'=>$email])->one();

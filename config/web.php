@@ -48,7 +48,6 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'baseUrl' => 'http://domain/myblog/web/', //Добавить путь
             ],
         ],
 
