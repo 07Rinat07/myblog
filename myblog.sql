@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Дек 01 2023 г., 00:17
+-- Время создания: Дек 11 2023 г., 13:44
 -- Версия сервера: 8.0.35-0ubuntu0.22.04.1
 -- Версия PHP: 8.0.30
 
@@ -167,6 +167,13 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Дамп данных таблицы `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `isAdmin`, `photo`) VALUES
+(1, 'john', 'john@example.com', 'john12', 0, NULL);
+
+--
 -- Индексы сохранённых таблиц
 --
 
@@ -254,7 +261,7 @@ ALTER TABLE `tag`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
