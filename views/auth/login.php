@@ -11,6 +11,12 @@ use yii\bootstrap5\Html;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+<div class="live-comment mr-0">
+    <div class="row">
+        <div class="co;-md-8 col-md-offset-2">
+
+
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
             ]); ?>
 
-            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+            <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
             <?= $form->field($model, 'password')->passwordInput() ?>
 
@@ -50,6 +56,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 To modify the username/password, please check out the code <code>app\models\User::$users</code>.
             </div>
 
+        </div>
+    </div>
+</div>
         </div>
     </div>
 </div>
