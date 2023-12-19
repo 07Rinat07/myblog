@@ -15,7 +15,6 @@ use yii\helpers\Url;
 
 
                                 <a href="<?= Url::toRoute(['site/view', 'id'=>$article->id]);?>" class="popular-img"><img src="<?= $article->getImage1(); ?>" alt="">
-                                <a href="<?= Url::toRoute(['site/view', 'id'=>$article->id]);?>" class="popular-img"><img src="<?= $article->getImage(); ?>" alt="">
 
                                     <div class="p-overlay"></div>
                                 </a>
@@ -39,7 +38,7 @@ use yii\helpers\Url;
                                 <div class="media">
                                     <div class="media-left">
                                         <a href="<?= Url::toRoute(['site/view', 'id'=>$article->id]);?>" class="popular-img"><img src="<?=$article->getImage1();?>" alt="">
-                                        <a href="<?= Url::toRoute(['site/view', 'id'=>$article->id]);?>" class="popular-img"><img src="<?=$article->getImage();?>" alt="">
+
                                             <div class="p-overlay"></div>
                                         </a>
                                     </div>
