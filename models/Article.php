@@ -82,7 +82,7 @@ class Article extends \yii\db\ActiveRecord
     public function getImage1()
     {
         return ($this->image) ? '/uploads/' . $this->image : '/no-image.png';
-       // <!--для динамики обращение в папку uploads времено дубль клон функция с др path.-->
+        // <!--для динамики обращение в папку uploads времено дубль клон функция с др path.-->
     }
 
     public function deleteImage()
@@ -155,7 +155,7 @@ class Article extends \yii\db\ActiveRecord
         $count = $query->count();
 
         // create a pagination object with the total count
-        $pagination = new Pagination(['totalCount' => $count, 'pageSize'=>$pageSize]);
+        $pagination = new Pagination(['totalCount' => $count, 'pageSize' => $pageSize]);
 
         // limit the query using the pagination and retrieve the articles
         $articles = $query->offset($pagination->offset)
@@ -181,7 +181,7 @@ class Article extends \yii\db\ActiveRecord
     public function saveArticle()
     {
         $this->user_id = Yii::$app->user->id;
-        $this->save();
+        return $this->save();
     }
 
 }

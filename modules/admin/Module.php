@@ -23,24 +23,26 @@ class Module extends \yii\base\Module
     public function behaviors()
     {
         return [
-            'access'    =>  [
-                'class' =>  AccessControl::className(),
-                'denyCallback'  =>  function($rule, $action)
-                {
+            'access' => [
+                'class' => AccessControl::className(),
+                'denyCallback' => function ($rule, $action) {
+                    Yii::error('Access denied: ' . Yii::$app->request->url, __METHOD__);
                     throw new \yii\web\NotFoundHttpException();
                 },
-                'rules' =>  [
+
+                'rules' => [
                     [
-                        'allow' =>  true,
-                        'matchCallback' =>  function($rule, $action)
-                        {
-                            return Yii::$app->user->identity->isAdmin;
-                        }
-                    ]
-                ]
-            ]
+                        'allow' => true,
+                        'matchCallback' => function ($rule, $action) {
+                            $user = Yii::$app->user->identity;
+                            return $user && $user->isAdmin;
+                        },
+                    ],
+                ],
+            ],
         ];
     }
+
 
     public function init()
     {
