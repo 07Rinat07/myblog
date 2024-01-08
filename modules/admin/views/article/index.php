@@ -39,10 +39,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::img($data->getImage(), ['width'=>200]);
                 }
             ],
-            // 'viewed',
-            // 'user_id',
-            // 'status',
-            // 'category_id',
+             'viewed',
+             'user_id',
+             'status',
+             'category_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

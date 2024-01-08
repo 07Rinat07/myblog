@@ -19,6 +19,9 @@ use yii\web\IdentityInterface;
  */
 class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
+
+    public $username;
+
     /**
      * @inheritdoc
      */
@@ -103,9 +106,11 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
 
-//    public function getImage()
-//    {
-//        return $this->photo;
-//    }
+    public function getImage()
+    {
+        return $this->photo;
+    }
+
+
 
 }

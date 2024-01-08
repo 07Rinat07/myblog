@@ -81,7 +81,7 @@ class Article extends \yii\db\ActiveRecord
 
     public function getImage1()
     {
-        return ($this->image) ? './../uploads/' . $this->image : './../no-image.png';
+        return ($this->image) ? '/uploads/' . $this->image : '/no-image.png';
        // <!--для динамики обращение в папку uploads времено дубль клон функция с др path.-->
     }
 
@@ -178,5 +178,10 @@ class Article extends \yii\db\ActiveRecord
         return Article:: find()->orderBy('date asc')->limit(4)->all();
     }
 
+    public function saveArticle()
+    {
+        $this->user_id = Yii::$app->user->id;
+        $this->save();
+    }
 
 }
